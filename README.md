@@ -5,6 +5,25 @@ Copyright (c) 2023 Jeffrey H. Johnson <trnsz@pobox.com>
 
 # LZFXS
 
+<!-- toc -->
+
+- [Overview](#overview)
+- [History](#history)
+- [LZFXS buffer format](#lzfxs-buffer-format)
+  - [Literal runs](#literal-runs)
+  - [Back references](#back-references)
+- [LZFXS file format](#lzfxs-file-format)
+  - [Block header format](#block-header-format)
+  - [Uncompressed blocks](#uncompressed-blocks)
+  - [Compressed blocks](#compressed-blocks)
+- [API](#api)
+  - [Buffer-to-buffer compression](#buffer-to-buffer-compression)
+  - [Buffer-to-buffer decompression](#buffer-to-buffer-decompression)
+
+<!-- tocstop -->
+
+## Overview
+
 **LZFXS** is a compact and low-complexity data compression algorithm.
 
 ## History
@@ -81,7 +100,7 @@ format. The remainder of the data payload contains compressed data.
 
 ## API
 
-### Buffer-to buffer compression
+### Buffer-to-buffer compression
 
 ```c
 int lzfxs_compress(const void* ibuf, unsigned int ilen,
